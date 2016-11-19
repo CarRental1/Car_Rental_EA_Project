@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -46,6 +47,15 @@ public class VehicleController {
 		List<Vehicle> vehicles = vehicleService.getAllVehicles();
 		model.addAttribute("vehicles", vehicles);
 		return "home";
+	}
+	
+	@RequestMapping("/vehicleDetail")
+	public String getVehicleById(Model model, @RequestParam("id") Integer vehicleId) {
+		System.out.println("=========== Vehicle Details");
+		Vehicle vehicle = vehicleService.findVehicleById(vehicleId);
+		System.out.println("=============" + vehicle.getDescription());
+		model.addAttribute("vehicle", vehicle);
+		return "vehicleDetails";
 	}
 	
 	@RequestMapping(value="/addVehicle", method = RequestMethod.GET)

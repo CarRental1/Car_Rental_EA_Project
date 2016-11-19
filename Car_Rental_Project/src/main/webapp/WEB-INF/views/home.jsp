@@ -19,9 +19,7 @@
 			<h4>${vehicle.description}</h4>
 			<p>Price: $ ${vehicle.price}</p>
 			<p>
-				<%-- <a href=" <spring:url value="/vehicle/vehicleDetail?id=${vehicle.vehicleId}" /> ">
-					<button>Details</button>
-				</a> --%>
+				<a href=" <spring:url value="/vehicle/vehicleDetail?id=${vehicle.vehicleId}" /> "><button>Details</button></a>
 			</p>
 		</div>
 	</c:forEach>

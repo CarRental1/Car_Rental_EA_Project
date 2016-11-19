@@ -30,4 +30,10 @@ public class VehicleServiceImpl implements VehicleService{
 		return (List<Vehicle>) vehicleRepository.findAll();
 	}
 
+	@Override
+	public Vehicle findVehicleById(Integer vehicleId) {
+		Integer vId = (Integer) vehicleId;
+		return vehicleRepository.findVehicleById(vId);
+	}
+
 }

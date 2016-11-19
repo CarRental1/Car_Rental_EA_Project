@@ -13,4 +13,6 @@ public interface VehicleService {
 
 	public List<Vehicle> getAllVehicles();
 
+	public Vehicle findVehicleById(Integer vehicleId);
+
 }
