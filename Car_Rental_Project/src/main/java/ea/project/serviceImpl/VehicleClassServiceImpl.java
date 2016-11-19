@@ -9,7 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import ea.project.domain.VehicleClass;
 import ea.project.repository.VehicleClassRepository;
 import ea.project.service.VehicleClassService;
-
+/**
+ * @author Bharat Pandey
+ *
+ */
 @Service
 @Transactional
 public class VehicleClassServiceImpl implements VehicleClassService{

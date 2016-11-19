@@ -10,6 +10,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
+
+/**
+ * @author Bharat Pandey
+ *
+ */
 @Entity
 public class Vehicle implements Serializable {
 	/**
