@@ -24,6 +24,10 @@ import ea.project.service.CategoryService;
 import ea.project.service.VehicleClassService;
 import ea.project.service.VehicleService;
 
+/**
+ * @author bpaans
+ *
+ */
 @Controller
 @RequestMapping(value={"/","/vehicle"})
 public class VehicleController {
