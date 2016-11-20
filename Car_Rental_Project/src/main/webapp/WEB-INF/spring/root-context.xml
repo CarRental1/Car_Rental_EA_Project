@@ -59,10 +59,25 @@
 	<context:component-scan base-package="ea.project.service" /> 
 	<context:component-scan base-package="ea.project.domain" />
 	<context:component-scan base-package="ea.project.repository" />
-
+	<context:component-scan base-package="ea.project.daoImpl" />
+	
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<bean id="persistenceExceptionTranslationPostProcessor"
 		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
-		
+	
+	<bean id="confirmationDAOImpl"	class="ea.project.daoImpl.ConfirmationDAOImpl">
+	</bean>
+	
+	<bean id="confirmationService" class="ea.project.serviceImpl.ConfirmationServiceImpl">
+	<property name="confirmationDao" ref="confirmationDAOImpl" />
+	</bean>
+	
+	<bean id="reservationDAOImpl"	class="ea.project.daoImpl.ReservationDAOImpl">
+	</bean>
+	
+	<bean id="reservationService" class="ea.project.serviceImpl.ReservationServiceImpl">
+	<property name="reservationDao" ref="reservationDAOImpl" />
+	</bean>
+	
 </beans>

@@ -14,5 +14,5 @@ public interface IConfirmationService
 	public void updateConfirmation(Confirmation confirmation);
 	public List<Confirmation> listConfirmation();
 	public Confirmation getConfirmationById(int id);
-	public void removeConfirmationById(long confirmationNumber);
+	public void removeConfirmationById(int id);
 }

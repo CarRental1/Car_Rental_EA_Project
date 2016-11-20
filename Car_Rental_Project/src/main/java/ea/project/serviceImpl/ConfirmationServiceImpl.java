@@ -2,6 +2,9 @@ package ea.project.serviceImpl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import ea.project.dao.IConfirmationDAO;
 import ea.project.domain.Confirmation;
 import ea.project.service.IConfirmationService;
@@ -10,6 +13,8 @@ import ea.project.service.IConfirmationService;
  * @author swoven
  * @version 1.0
  */
+@Service
+@Transactional
 public class ConfirmationServiceImpl implements IConfirmationService
 {
 	private IConfirmationDAO confirmationDao;
@@ -44,8 +49,8 @@ public class ConfirmationServiceImpl implements IConfirmationService
 	}
 
 	@Override
-	public void removeConfirmationById(long confirmationNumber) {
-		this.confirmationDao.removeConfirmationById(confirmationNumber);
+	public void removeConfirmationById(int id) {
+		this.confirmationDao.removeConfirmationById(id);
 	}
 	
 }

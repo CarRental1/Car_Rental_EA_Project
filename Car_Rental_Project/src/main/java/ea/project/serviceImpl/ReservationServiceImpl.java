@@ -2,6 +2,9 @@ package ea.project.serviceImpl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import ea.project.dao.IReservationDAO;
 import ea.project.domain.Reservation;
 import ea.project.service.IReservationService;
@@ -10,6 +13,9 @@ import ea.project.service.IReservationService;
  * @author swoven
  *@version 1.0
  */
+
+@Service
+@Transactional
 public class ReservationServiceImpl implements IReservationService
 {
 	private IReservationDAO reservationDao;
