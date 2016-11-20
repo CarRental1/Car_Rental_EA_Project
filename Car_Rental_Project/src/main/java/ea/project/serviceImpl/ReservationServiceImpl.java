@@ -24,32 +24,30 @@ public class ReservationServiceImpl implements IReservationService
 	}
 
 	@Override
-	public void createReservation(Reservation reservayion) {
-		// TODO Auto-generated method stub
+	public void createReservation(Reservation reservation) {
+		this.reservationDao.createReservation(reservation);
 		
 	}
 
 	@Override
 	public void updateReservation(Reservation reservation) {
-		// TODO Auto-generated method stub
+		this.reservationDao.updateReservation(reservation);
 		
 	}
 
 	@Override
 	public List<Reservation> listReservation() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.reservationDao.listReservation();
 	}
 
 	@Override
 	public Reservation getReservationById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.reservationDao.getReservationById(id);
 	}
 
 	@Override
 	public void removeReservation(int id) {
-		// TODO Auto-generated method stub
+		this.reservationDao.removeReservation(id);
 		
 	}
 

@@ -20,7 +20,7 @@ public class ConfirmationDAOImpl implements IConfirmationDAO
 	}
 
 	@Override
-	public void updateReservation(Confirmation confirmation) {
+	public void updateConfirmation(Confirmation confirmation) {
 		// TODO Auto-generated method stub
 		
 	}

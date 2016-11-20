@@ -24,32 +24,28 @@ public class ConfirmationServiceImpl implements IConfirmationService
 
 	@Override
 	public void createConfirmation(Confirmation confirmation) {
-		// TODO Auto-generated method stub
+		this.confirmationDao.createConfirmation(confirmation);
 		
 	}
 
 	@Override
-	public void updateReservation(Confirmation confirmation) {
-		// TODO Auto-generated method stub
-		
+	public void updateConfirmation(Confirmation confirmation) {
+		this.confirmationDao.updateConfirmation(confirmation);
 	}
 
 	@Override
 	public List<Confirmation> listConfirmation() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.confirmationDao.listConfirmation();
 	}
 
 	@Override
 	public Confirmation getConfirmationById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.confirmationDao.getConfirmationById(id);
 	}
 
 	@Override
 	public void removeConfirmationById(long confirmationNumber) {
-		// TODO Auto-generated method stub
-		
+		this.confirmationDao.removeConfirmationById(confirmationNumber);
 	}
 	
 }

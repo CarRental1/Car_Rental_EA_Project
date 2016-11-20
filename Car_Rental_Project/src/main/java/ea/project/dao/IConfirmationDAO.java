@@ -11,7 +11,7 @@ import ea.project.domain.Confirmation;
 public interface IConfirmationDAO 
 {
 	public void createConfirmation(Confirmation confirmation);
-	public void updateReservation(Confirmation confirmation);
+	public void updateConfirmation(Confirmation confirmation);
 	public List<Confirmation> listConfirmation();
 	public Confirmation getConfirmationById(int id);
 	public void removeConfirmationById(long confirmationNumber);
