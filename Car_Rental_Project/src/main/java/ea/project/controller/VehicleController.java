@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,9 +52,7 @@ public class VehicleController {
 	
 	@RequestMapping("/vehicleDetail")
 	public String getVehicleById(Model model, @RequestParam("id") Integer vehicleId) {
-		System.out.println("=========== Vehicle Details");
 		Vehicle vehicle = vehicleService.findVehicleById(vehicleId);
-		System.out.println("=============" + vehicle.getDescription());
 		model.addAttribute("vehicle", vehicle);
 		return "vehicleDetails";
 	}
@@ -69,9 +68,14 @@ public class VehicleController {
 	}
 	
 	@RequestMapping(value="/addVehicle", method = RequestMethod.POST)
-	public String saveVehicle(@ModelAttribute("newVehicle") Vehicle vehicle, BindingResult bindingResult, RedirectAttributes redirectAttributes, HttpServletRequest request){
+	public String saveVehicle(@Valid @ModelAttribute("newVehicle") Vehicle vehicle, BindingResult bindingResult, RedirectAttributes redirectAttributes, HttpServletRequest request, Model model){
 		if(bindingResult.hasErrors()){
-			return "vehicle/addVehicle";
+			List<Category> categories = categoryService.getAllCategory();
+			model.addAttribute("categories",categories);
+			List<VehicleClass> vehicleClasses = vehicleClassService.getAllVehicleClass();
+			System.out.println(vehicleClasses);
+			model.addAttribute("vehicleClasses", vehicleClasses);
+			return "addVehicle";
 		}
 		MultipartFile vehicletImage = vehicle.getVehicleImage();
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");

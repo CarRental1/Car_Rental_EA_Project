@@ -8,7 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.NaturalId;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
+import org.springframework.format.annotation.NumberFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -26,15 +33,25 @@ public class Vehicle implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	int id;
 	
+	@NotNull
+	@Range(min = 104, max = 999, message="{Vehicle.vehicleId.validation}")
 	private Integer vehicleId;
 	@OneToOne
 	private VehicleClass vehicleClass;
 	@OneToOne
 	private Category category;
+	@NotBlank
+	@Size(min=4, max=20, message="{Vehicle.description.validation}")	
 	private String description;
-	private int capacity;
-	private int bags; 
-	private double price;
+	@NotNull
+	@Range(min = 1, max = 10, message="{Vehicle.capacity.validation}")
+	private Integer capacity;
+	@NotNull
+	@Range(min = 1, max = 3, message="{Vehicle.bags.validation}")
+	private Integer bags; 
+	@NotNull
+	private Double price;
+	@NotEmpty
 	private String specialFeatures;
 	@Transient
 	private MultipartFile  vehicleImage;
@@ -63,22 +80,22 @@ public class Vehicle implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getCapacity() {
+	public Integer getCapacity() {
 		return capacity;
 	}
-	public void setCapacity(int capacity) {
+	public void setCapacity(Integer capacity) {
 		this.capacity = capacity;
 	}
-	public int getBags() {
+	public Integer getBags() {
 		return bags;
 	}
-	public void setBags(int bags) {
+	public void setBags(Integer bags) {
 		this.bags = bags;
 	}
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	public String getSpecialFeatures() {
@@ -93,16 +110,6 @@ public class Vehicle implements Serializable {
 	public void setVehicleImage(MultipartFile vehicleImage) {
 		this.vehicleImage = vehicleImage;
 	}
-	
-	
-	
-/*	@Size(min=4, max=50, message="{Product.name.validation}")
-	private String name;	
-	private double price;	
-	private String description;	
-	@Size(min=4, max=50, message="{Product.manufacturer.validation}")
-	private String manufacturer;	
-	@OneToOne(cascade=CascadeType.ALL)
-	private Category category;*/
+
 
 }

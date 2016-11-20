@@ -1,7 +1,7 @@
-INSERT INTO `category` VALUES (NULL,'Cars')
-INSERT INTO `category` VALUES (NULL,'SUVs')
-INSERT INTO `category` VALUES (NULL,'Trucks')
-INSERT INTO `category` VALUES (NULL,'Vans')
+INSERT INTO `category` VALUES (NULL,'Car')
+INSERT INTO `category` VALUES (NULL,'SUV')
+INSERT INTO `category` VALUES (NULL,'Truck')
+INSERT INTO `category` VALUES (NULL,'Van')
 --
 --
 INSERT INTO `vehicleClass` VALUES (NULL,'Economy')
