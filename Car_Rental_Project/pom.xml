@@ -12,13 +12,14 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.8</java-version>
-		<org.springframework-version>4.0.3.RELEASE</org.springframework-version>
+		<!-- <org.springframework-version>4.0.3.RELEASE</org.springframework-version> -->
+		<org.springframework-version>4.1.6.RELEASE</org.springframework-version> 
 		<!-- <org.springframework-version>3.1.1.RELEASE</org.springframework-version> -->
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<jackson.version>1.9.10</jackson.version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<!-- spring security version added -->
-		<spring.security.version>3.2.5.RELEASE</spring.security.version>
+		<spring.security.version>4.1.0.RELEASE</spring.security.version>
 		
 		<maven.compiler.source>1.8</maven.compiler.source>
   	<maven.compiler.target>1.8</maven.compiler.target>
@@ -102,34 +103,35 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		
 		<!-- Security -->
 		<dependency>
-  		<groupId>org.springframework.security</groupId>
-  		<artifactId>spring-security-config</artifactId>
-  		<version>3.2.5.RELEASE</version>
-  		<exclusions>
-  			<exclusion>
-  				<artifactId>spring-asm</artifactId>
-  				<groupId>org.springframework</groupId>
-  			</exclusion>
-  		</exclusions>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.springframework.security</groupId>
-  		<artifactId>spring-security-web</artifactId>
-  		<version>3.2.5.RELEASE</version>
-  	</dependency>
-  	
-  	<dependency>
-  		<groupId>org.springframework.security</groupId>
-  		<artifactId>spring-security-core</artifactId>
-  		<version>3.2.5.RELEASE</version>
-  	</dependency>
-
-	<dependency>
-	  	<groupId>org.springframework.security</groupId>
-  		<artifactId>spring-security-taglibs</artifactId>
-  		<version>3.2.5.RELEASE</version>
-  	</dependency>
-  	
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>4.1.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>4.1.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>4.1.0.RELEASE</version>
+		</dependency>
+  		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>4.1.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>4.1.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>4.1.0.RELEASE</version>
+		</dependency>
   	<!-- fileupload -->
   	<dependency>
   		<groupId>commons-fileupload</groupId>

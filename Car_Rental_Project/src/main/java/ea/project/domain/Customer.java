@@ -6,12 +6,16 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import ea.project.domain.User.Role;
 
 @Entity
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -43,17 +47,44 @@ public class Customer implements Serializable {
 //	@Length(min = 6, message = "Password should be more than 5 characters")
 	private String password;
 	
+	public enum Role {
+		ROLE_USER, ROLE_ADMIN
+	};
+
 	public Customer() {
 		// TODO Auto-generated constructor stub
 		super();
 	}
-	
+
 	public Customer(PersonalDetail personalDetail, BillingAddress billingAddress, CreditCard creditCard) {
 		// TODO Auto-generated constructor stub
 		this.personalDetail = personalDetail;
 		this.billingAddress = billingAddress;
 		this.creditCard = creditCard;
 	}
+	
+	@Enumerated(EnumType.STRING)
+	private Role authority;
+
+	@Column(nullable = true)
+	boolean enabled;
+
+	public Role getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(Role authority) {
+		this.authority = authority;
+	}
+
+	public boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
 	
 	public int getCustomerId() {
 		return customerId;

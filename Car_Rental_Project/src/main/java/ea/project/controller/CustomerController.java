@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ea.project.domain.Customer;
+import ea.project.domain.Customer.Role;
 import ea.project.service.ICustomerService;
 
 @Controller
@@ -37,26 +38,6 @@ public class CustomerController {
 		return "clientList";
 	}
 	
-	@RequestMapping("/customerDetail")
-	public String getCustomerByUserName(Model model, @RequestParam("userName") String userName) {
-		System.out.println("=========== Customer Details");
-		Customer customer = customerService.findCustomerByUserName(userName);
-		System.out.println("=============" + customer.getCustomerId());
-		model.addAttribute("customer", customer);
-		return "customerDetails";
-	}
-	
-//	@RequestMapping("/login")
-//	public String getCustomerByUserNameAndPassword(BindingResult bindingResult, @RequestParam("userName") String userName, @RequestParam("password") String password) {
-//		if(bindingResult.hasErrors()){
-//			return "customer/login";
-//		}
-//		Customer customer = customerService.findCustomerByUserNameAndPassword(userName, password);
-//		if(null != customer)
-//			return "home";
-//		return "login";
-//	}
-	
 	@RequestMapping(value="/addCustomer", method = RequestMethod.GET)
 	public String addCustomer(@ModelAttribute("newCustomer") Customer customer, Model model){
 		return "addCustomer";
@@ -67,12 +48,14 @@ public class CustomerController {
 		if(bindingResult.hasErrors()){
 			return "customer/addCustomer";
 		}
+		customer.setAuthority(Role.ROLE_USER);
+		customer.setEnabled(true);
 		customerService.addCustomer(customer);
 		redirectAttributes.addFlashAttribute(customer);
 		
 		//test pre
-		Customer customer2 = customerService.findCustomerByUserName(customer.getUserName());
-		System.out.println(customer2.getUserName());
+		/*Customer customer2 = customerService.findCustomerByUserName(customer.getUserName());
+		System.out.println(customer2.getUserName());*/
 		return "redirect:/login";
 	}
 }
