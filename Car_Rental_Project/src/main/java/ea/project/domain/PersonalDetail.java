@@ -2,6 +2,7 @@ package ea.project.domain;
 
 import java.util.Date;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Lob;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Past;
@@ -11,6 +12,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
+@Embeddable
 public class PersonalDetail {
 	@NotEmpty(message="The first name must not be null")
 	private

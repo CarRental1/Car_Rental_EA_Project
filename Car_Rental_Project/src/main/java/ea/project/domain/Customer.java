@@ -1,20 +1,27 @@
 package ea.project.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Customer {
+public class Customer implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7229488317098431281L;
 
 	@Id
 	@GeneratedValue
-	private String customerId;
+	private int customerId;
 
 	@Embedded
 	private PersonalDetail personalDetail;
@@ -24,7 +31,7 @@ public class Customer {
 	
 	@Embedded
 	private CreditCard creditCard;
-
+	
 	public Customer() {
 		// TODO Auto-generated constructor stub
 		super();
@@ -37,11 +44,11 @@ public class Customer {
 		this.creditCard = creditCard;
 	}
 	
-	public String getCustomerId() {
+	public int getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(String customerId) {
+	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
 
@@ -60,9 +67,10 @@ public class Customer {
 	public void setPersonalDetail(PersonalDetail personalDetail) {
 		this.personalDetail = personalDetail;
 	}
-	
-	@Override
-	public String toString() {
-		return personalDetail.getFirstName();
-	}
+//	
+//	@Override
+//	public String toString() {
+//		return personalDetail.getFirstName();
+//	}
+
 }
