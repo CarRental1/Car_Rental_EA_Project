@@ -44,14 +44,14 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Override
 	public Customer findCustomerByUserName(String userName) {
 		// TODO Auto-generated method stub
-		return customerRepository.findCustomerByUserName(userName);
+		return customerRepository.findByUserName(userName);
 	}
 
-//	@Override
-//	public Customer findCustomerByUserNameAndPassword(String userName, String password) {
-//		// TODO Auto-generated method stub
-//		return customerRepository.findCustomerByUserName(userName);
-//		//return customerRepository.findCustomerByUserNameAndPassword(userName, password);
-//	}
+	@Override
+	public Customer findCustomerByUserNameAndPassword(String userName, String password) {
+		// TODO Auto-generated method stub
+//		return customerRepository.f(userName);
+		return customerRepository.findByUserNameAndPassword(userName, password);
+	}
 
 }

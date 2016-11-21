@@ -77,16 +77,16 @@
 				  <tr>
 				    <td>User Name: *</td>
 				    <td>
-				      <form:input id="user.username" type="text" path="user.username" />		
+				      <form:input id="userName" type="text" path="userName" />		
 				    </td>
-				    <td><form:errors path="user.username" cssClass="error" /> </td>
+				    <td><form:errors path="userName" cssClass="error" /> </td>
 				  </tr>
 				  <tr>
 				    <td>Password: *</td>
 				    <td>
-				      <form:input id="user.password" type="password" path="user.password" />		
+				      <form:input id="password" type="password" path="password" />		
 				    </td>
-				    <td><form:errors path="user.password" cssClass="error" /> </td>
+				    <td><form:errors path="password" cssClass="error" /> </td>
 				  </tr>
 				  <tr>
 				    <td>Drivers License Number:*</td>

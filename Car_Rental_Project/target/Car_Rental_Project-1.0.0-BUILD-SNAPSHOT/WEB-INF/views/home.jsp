@@ -17,12 +17,14 @@
 				src="<c:url value="/resources/images/${vehicle.vehicleId}.png"/>"
 				alt="image" style="width: 400px; height:300px" />
 			<h4>${vehicle.description}</h4>
-			<p>Price: $ ${vehicle.price}</p>
+			<p>Price: $${vehicle.price}</p>
 			<p>
-				<a href=" <spring:url value="/vehicle/vehicleDetail?id=${vehicle.vehicleId}" /> "><button>Details</button></a>
+				<a href=" <spring:url value="/vehicle/vehicleDetail?id=${vehicle.vehicleId}" /> "><button>See Details</button></a>
+				<a href="<spring:url value="/reservation?id=${vehicle.vehicleId}"/>"><button>Book Now</button></a>
 			</p>
 		</div>
 	</c:forEach>
 </div>
+<div><a href="login">Login</a></div>
 </body>
 </html>

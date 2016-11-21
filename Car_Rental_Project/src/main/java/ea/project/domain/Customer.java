@@ -3,12 +3,15 @@ package ea.project.domain;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -32,11 +35,13 @@ public class Customer implements Serializable {
 	@Embedded
 	private CreditCard creditCard;
 	
-//	@OneToOne(cascade = CascadeType.PERSIST)
-//	@JoinColumn(name = "userID")
-	@Embedded
-	private
-	User user;
+	@Column(unique = true)
+	@NotEmpty(message = "The customer username must not be null")
+	private String userName;
+
+	@NotEmpty(message = "The customer password must not be null")
+//	@Length(min = 6, message = "Password should be more than 5 characters")
+	private String password;
 	
 	public Customer() {
 		// TODO Auto-generated constructor stub
@@ -73,18 +78,22 @@ public class Customer implements Serializable {
 	public void setPersonalDetail(PersonalDetail personalDetail) {
 		this.personalDetail = personalDetail;
 	}
-//	
-//	@Override
-//	public String toString() {
-//		return personalDetail.getFirstName();
-//	}
 
-	public User getUser() {
-		return user;
+
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
 	}
 
 }

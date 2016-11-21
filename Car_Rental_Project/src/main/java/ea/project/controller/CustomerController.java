@@ -69,6 +69,10 @@ public class CustomerController {
 		}
 		customerService.addCustomer(customer);
 		redirectAttributes.addFlashAttribute(customer);
+		
+		//test pre
+		Customer customer2 = customerService.findCustomerByUserName(customer.getUserName());
+		System.out.println(customer2.getUserName());
 		return "redirect:/login";
 	}
 }
