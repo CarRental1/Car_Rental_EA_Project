@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -78,16 +77,16 @@
 				  <tr>
 				    <td>User Name: *</td>
 				    <td>
-				      <form:input id="personalDetail.username" type="text" path="personalDetail.username" />		
+				      <form:input id="user.username" type="text" path="user.username" />		
 				    </td>
-				    <td><form:errors path="personalDetail.username" cssClass="error" /> </td>
+				    <td><form:errors path="user.username" cssClass="error" /> </td>
 				  </tr>
 				  <tr>
 				    <td>Password: *</td>
 				    <td>
-				      <form:input id="personalDetail.password" type="password" path="personalDetail.password" />		
+				      <form:input id="user.password" type="password" path="user.password" />		
 				    </td>
-				    <td><form:errors path="personalDetail.password" cssClass="error" /> </td>
+				    <td><form:errors path="user.password" cssClass="error" /> </td>
 				  </tr>
 				  <tr>
 				    <td>Drivers License Number:*</td>

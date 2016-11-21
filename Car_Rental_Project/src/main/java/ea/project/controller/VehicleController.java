@@ -32,6 +32,7 @@ import ea.project.service.VehicleService;
  */
 @Controller
 @RequestMapping(value={"/","/vehicle"})
+//@RequestMapping(value={"/vehicle"})
 public class VehicleController {
 	
 	@Autowired

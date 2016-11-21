@@ -42,9 +42,16 @@ public class CustomerServiceImpl implements ICustomerService {
 	}
 
 	@Override
-	public Customer findCustomerById(int customerId) {
+	public Customer findCustomerByUserName(String userName) {
 		// TODO Auto-generated method stub
-		return customerRepository.findCustomerById(customerId);
+		return customerRepository.findCustomerByUserName(userName);
 	}
+
+//	@Override
+//	public Customer findCustomerByUserNameAndPassword(String userName, String password) {
+//		// TODO Auto-generated method stub
+//		return customerRepository.findCustomerByUserName(userName);
+//		//return customerRepository.findCustomerByUserNameAndPassword(userName, password);
+//	}
 
 }

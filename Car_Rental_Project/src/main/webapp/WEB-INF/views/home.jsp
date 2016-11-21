@@ -25,5 +25,6 @@
 		</div>
 	</c:forEach>
 </div>
+<div><a href="login">Login</a></div>
 </body>
 </html>

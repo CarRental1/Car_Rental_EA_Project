@@ -8,7 +8,10 @@ import ea.project.domain.Customer;
 
 public interface CustomerRepository extends CrudRepository<Customer, Integer> {
 	
-	 @Query("SELECT c FROM Customer c WHERE c.customerId = :customerId")
-	 public Customer findCustomerById(@Param("customerId") int customerId);
+	 @Query("SELECT c FROM Customer c WHERE c.user.userName = :userName")
+	 public Customer findCustomerByUserName(@Param("userName") String userName);
+	 
+	 //@Query("SELECT c FROM Customer c WHERE c.userName = :userName and c.password =: password")
+//	 public Customer findCustomerByUserNameAndPassword(String userName, String password);
 
 }

@@ -37,6 +37,8 @@
       <input type="radio" name="radio" id="radioRememberMe" value="radioRememberMe" />
       Remember my member number on this browser</label></td>
   </tr>
+ <tr><td>&nbsp;</td>
+    <td><a href="addCustomer">Register</a></td></tr> 
   <tr>
     <td>&nbsp;</td>
     <td><label>

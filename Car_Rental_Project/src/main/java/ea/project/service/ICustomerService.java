@@ -9,5 +9,6 @@ public interface ICustomerService {
 	public void deleteCustomer(Customer customer);
 	public void updateCustomer(Customer customer);
 	public Collection<Customer> getCustomers();
-	public Customer findCustomerById(int customerId);
+	public Customer findCustomerByUserName(String userName);
+	//public Customer findCustomerByUserNameAndPassword(String userName, String password);
 }

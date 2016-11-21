@@ -25,10 +25,10 @@ public class CustomerController {
 	@Autowired
 	ICustomerService customerService;
 	
-	@RequestMapping("/")
-    public String redirectRoot() {
-        return "redirect:/addCustomer";
-    }
+//	@RequestMapping("/")
+//    public String redirectRoot() {
+//        return "redirect:/addCustomer";
+//    }
 	
 	@RequestMapping(value={"","/showCustomer"}, method = RequestMethod.GET)
 	public String showCustomers(Model model){
@@ -38,21 +38,27 @@ public class CustomerController {
 	}
 	
 	@RequestMapping("/customerDetail")
-	public String getCustomerById(Model model, @RequestParam("id") int customerId) {
+	public String getCustomerByUserName(Model model, @RequestParam("userName") String userName) {
 		System.out.println("=========== Customer Details");
-		Customer customer = customerService.findCustomerById(customerId);
+		Customer customer = customerService.findCustomerByUserName(userName);
 		System.out.println("=============" + customer.getCustomerId());
 		model.addAttribute("customer", customer);
 		return "customerDetails";
 	}
 	
+//	@RequestMapping("/login")
+//	public String getCustomerByUserNameAndPassword(BindingResult bindingResult, @RequestParam("userName") String userName, @RequestParam("password") String password) {
+//		if(bindingResult.hasErrors()){
+//			return "customer/login";
+//		}
+//		Customer customer = customerService.findCustomerByUserNameAndPassword(userName, password);
+//		if(null != customer)
+//			return "home";
+//		return "login";
+//	}
+	
 	@RequestMapping(value="/addCustomer", method = RequestMethod.GET)
 	public String addCustomer(@ModelAttribute("newCustomer") Customer customer, Model model){
-//		List<Category> categories = categoryService.getAllCategory();
-//		model.addAttribute("categories",categories);
-//		List<VehicleClass> vehicleClasses = vehicleClassService.getAllVehicleClass();
-//		System.out.println(vehicleClasses);
-//		model.addAttribute("vehicleClasses", vehicleClasses);
 		return "addCustomer";
 	}
 	

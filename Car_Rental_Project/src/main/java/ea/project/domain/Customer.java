@@ -2,13 +2,13 @@ package ea.project.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -31,6 +31,12 @@ public class Customer implements Serializable {
 	
 	@Embedded
 	private CreditCard creditCard;
+	
+//	@OneToOne(cascade = CascadeType.PERSIST)
+//	@JoinColumn(name = "userID")
+	@Embedded
+	private
+	User user;
 	
 	public Customer() {
 		// TODO Auto-generated constructor stub
@@ -72,5 +78,13 @@ public class Customer implements Serializable {
 //	public String toString() {
 //		return personalDetail.getFirstName();
 //	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 }
